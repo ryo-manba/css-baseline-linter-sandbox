@@ -1,0 +1,16 @@
+a {
+  /* Widely available */
+  clip-path: margin-box;
+  /* Newly available */
+  clip-path: fill-box;
+  /* Limited availability */
+}
+
+@keyframes circle {
+  0% {
+    clip-path: circle(75%);
+  }
+  100% {
+    clip-path: circle(25%);
+  }
+}

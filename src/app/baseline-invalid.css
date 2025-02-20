@@ -1,0 +1,89 @@
+/* Using unsupported properties: accent-color and backdrop-filter */
+a {
+  accent-color: bar;
+  backdrop-filter: auto;
+}
+
+/* Using accent-color with "newly" availability option */
+a {
+  accent-color: bar;
+  backdrop-filter: auto;
+}
+
+/* Using @property rule, which is not widely available */
+@property --foo {
+  syntax: "*";
+  inherits: false;
+}
+
+/* Using a media query to style an element based on screen width */
+@media (min-width: 800px) {
+  a {
+    color: red;
+  }
+}
+
+/* Using @container query, which is not widely available */
+@container (min-width: 800px) {
+  a {
+    color: red;
+  }
+}
+
+/* Using @view-transition, which is not widely available */
+@view-transition {
+  from-view: a;
+  to-view: b;
+}
+
+/* Using @container query within the same block */
+@container (min-width: 800px) {
+  a {
+    color: red;
+  }
+}
+
+/* Using @supports with nested unsupported properties: accent-color and backdrop-filter */
+@supports (accent-color: auto) {
+  @supports (backdrop-filter: auto) {
+    a {
+      accent-color: red;
+    }
+  }
+
+  a {
+    backdrop-filter: auto;
+  }
+}
+
+/* Using @supports to check for an unsupported value in clip-path */
+@supports (clip-path: fill-box) {
+  a {
+    clip-path: stroke-box;
+  }
+}
+
+/* Using an unsupported function type (abs) inside @supports */
+@supports (accent-color: auto) {
+  a {
+    accent-color: abs(20% - 10px);
+  }
+}
+
+/* Using @supports with "not" condition for accent-color */
+@supports not (accent-color: auto) {
+  a {
+    accent-color: auto;
+  }
+}
+
+/* Using an unsupported function type (abs) for width calculation */
+a {
+  width: abs(20% - 100px);
+}
+
+@media (color-gamut: srgb) {
+  p {
+    background: #f4ae8a;
+  }
+}

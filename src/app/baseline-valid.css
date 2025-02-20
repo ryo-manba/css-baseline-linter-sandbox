@@ -1,0 +1,106 @@
+/* Basic styling */
+a {
+  color: red;
+}
+
+a {
+  color: red;
+  background-color: blue;
+}
+
+a {
+  color: red;
+  transition: none;
+}
+
+/* Custom properties */
+body {
+  --custom-property: red;
+}
+
+/* Padding */
+body {
+  padding: 0;
+}
+
+/* Pseudo-elements */
+::before {
+  content: attr(foo);
+}
+
+/* Vendor-prefixed properties */
+a {
+  color: red;
+  -moz-transition: bar;
+}
+
+/* @font-face */
+@font-face {
+  font-weight: 100 400;
+}
+
+/* @media query */
+@media (min-width: 800px) {
+  a {
+    color: red;
+  }
+}
+
+/* @supports query */
+@supports (accent-color: auto) {
+  a {
+    accent-color: auto;
+  }
+}
+
+@supports (accent-color: red) {
+  a {
+    accent-color: red;
+  }
+}
+
+@supports (accent-color: auto) {
+  a {
+    accent-color: red;
+  }
+}
+
+@supports (clip-path: fill-box) {
+  a {
+    clip-path: fill-box;
+  }
+}
+
+@supports (accent-color: auto) and (backdrop-filter: auto) {
+  a {
+    accent-color: auto;
+    background-filter: auto;
+  }
+}
+
+@supports (accent-color: auto) {
+  @supports (backdrop-filter: auto) {
+    a {
+      accent-color: auto;
+      background-filter: auto;
+    }
+  }
+}
+
+@supports (accent-color: auto) {
+  @supports (accent-color: auto) {
+    a {
+      accent-color: auto;
+    }
+  }
+  a {
+    accent-color: auto;
+  }
+}
+
+/* Calculation functions */
+@supports (width: abs(20% - 100px)) {
+  a {
+    width: abs(20% - 100px);
+  }
+}

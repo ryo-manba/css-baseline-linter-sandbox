@@ -1,0 +1,9 @@
+a {
+  accent-color: bar;
+  clip-path: stroke-box;
+  width: abs(20% - 100px);
+}
+@view-transition {
+  from-view: a;
+  to-view: b;
+}
