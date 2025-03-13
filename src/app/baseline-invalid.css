@@ -1,89 +1,162 @@
-/* Using unsupported properties: accent-color and backdrop-filter */
-a {
-  accent-color: bar;
-  backdrop-filter: auto;
+/* ------------------------------------------------------------- */
+/* property
+/* ------------------------------------------------------------- */
+
+/* limited */
+.limited-property {
+  accent-color: red;
 }
 
-/* Using accent-color with "newly" availability option */
-a {
-  accent-color: bar;
-  backdrop-filter: auto;
+/* newly */
+.newly-property {
+  backdrop-filter: blur(5px);
 }
 
-/* Using @property rule, which is not widely available */
-@property --foo {
-  syntax: "*";
-  inherits: false;
+/* widely */
+.widely-property {
+  color: blue;
 }
 
-/* Using a media query to style an element based on screen width */
-@media (min-width: 800px) {
-  a {
-    color: red;
-  }
+/* ------------------------------------------------------------- */
+/* property-value
+/* ------------------------------------------------------------- */
+
+/* limited */
+.limited-property-value {
+  align-items: anchor-center;
 }
 
-/* Using @container query, which is not widely available */
-@container (min-width: 800px) {
-  a {
-    color: red;
-  }
+/* newly */
+.newly-property-value {
+  clip-path: stroke-box;
 }
 
-/* Using @view-transition, which is not widely available */
-@view-transition {
-  from-view: a;
-  to-view: b;
+/* widely */
+.widely-property-value {
+  position: absolute;
 }
 
-/* Using @container query within the same block */
-@container (min-width: 800px) {
-  a {
-    color: red;
-  }
-}
+/* ------------------------------------------------------------- */
+/* function
+/* ------------------------------------------------------------- */
 
-/* Using @supports with nested unsupported properties: accent-color and backdrop-filter */
 @supports (accent-color: auto) {
-  @supports (backdrop-filter: auto) {
-    a {
-      accent-color: red;
-    }
+  /* limited */
+  .limited-type {
+    width: abs(50% - 20px);
   }
 
-  a {
+  /* newly */
+  .newly-type {
+    height: pow(10px, 2);
+  }
+
+  /* widely */
+  .widely-type::before {
+    width: calc(10px + 100px);
+  }
+}
+
+/* ------------------------------------------------------------- */
+/* at-rule
+/* ------------------------------------------------------------- */
+
+/* limited */
+@view-transition {
+  from-view: pageA;
+  to-view: pageB;
+}
+
+/* newly */
+@container (min-width: 600px) {
+  .newly-at-rule {
+    color: red;
+  }
+}
+
+/* widely */
+@supports (display: flex) {
+  .widely-at-rule {
+    color: blue;
+  }
+}
+
+/* ------------------------------------------------------------- */
+/* media-condition
+/* ------------------------------------------------------------- */
+
+/* limited */
+@media (device-height: 800px) {
+  .limited-media-condition {
+    background: #eee;
+  }
+}
+
+/* newly */
+@media (color-gamut: srgb) {
+  .newly-media-condition {
+    background: #cfc;
+  }
+}
+
+/* widely */
+@media (hover: hover) {
+  .widely-media-condition {
+    background: #acf;
+  }
+}
+
+/* ------------------------------------------------------------- */
+/* selector
+/* ------------------------------------------------------------- */
+
+/* limited */
+.limited-selector:active-view-transition {
+  background-color: #ddd;
+}
+
+/* newly */
+.newly-selector:has(.child) {
+  border: 1px solid green;
+}
+
+/* widely */
+.widely-selector::after {
+  content: "I'm widely used!";
+  color: purple;
+}
+
+/* ------------------------------------------------------------- */
+/* at-supports
+/* ------------------------------------------------------------- */
+
+/* limited */
+@supports (accent-color: auto) {
+  .limited-at-supports {
+    accent-color: red;
+  }
+}
+
+/* newly */
+@supports (backdrop-filter: auto) {
+  .newly-at-supports {
     backdrop-filter: auto;
   }
 }
 
-/* Using @supports to check for an unsupported value in clip-path */
-@supports (clip-path: fill-box) {
-  a {
-    clip-path: stroke-box;
+/* widely */
+@supports (display: flex) {
+  .widely-at-supports {
+    display: flex;
   }
 }
 
-/* Using an unsupported function type (abs) inside @supports */
+/* nested */
 @supports (accent-color: auto) {
-  a {
-    accent-color: abs(20% - 10px);
-  }
-}
-
-/* Using @supports with "not" condition for accent-color */
-@supports not (accent-color: auto) {
-  a {
-    accent-color: auto;
-  }
-}
-
-/* Using an unsupported function type (abs) for width calculation */
-a {
-  width: abs(20% - 100px);
-}
-
-@media (color-gamut: srgb) {
-  p {
-    background: #f4ae8a;
+  @supports (backdrop-filter: auto) {
+    .nested-at-supports {
+      accent-color: red;
+      backdrop-filter: auto;
+    }
   }
 }

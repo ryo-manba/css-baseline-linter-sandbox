@@ -1,4 +1,3 @@
-/* Basic styling */
 a {
   color: red;
 }
@@ -13,40 +12,33 @@ a {
   transition: none;
 }
 
-/* Custom properties */
 body {
   --custom-property: red;
 }
 
-/* Padding */
 body {
   padding: 0;
 }
 
-/* Pseudo-elements */
 ::before {
   content: attr(foo);
 }
 
-/* Vendor-prefixed properties */
 a {
   color: red;
   -moz-transition: bar;
 }
 
-/* @font-face */
 @font-face {
   font-weight: 100 400;
 }
 
-/* @media query */
 @media (min-width: 800px) {
   a {
     color: red;
   }
 }
 
-/* @supports query */
 @supports (accent-color: auto) {
   a {
     accent-color: auto;
@@ -98,7 +90,6 @@ a {
   }
 }
 
-/* Calculation functions */
 @supports (width: abs(20% - 100px)) {
   a {
     width: abs(20% - 100px);
